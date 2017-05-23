@@ -1,0 +1,32 @@
+{
+  "name": "kue",
+  "description": "Kue implementation in TypeScript with Express",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/vladotesanovic/kue-typescript"
+  },
+  "version": "0.0.1",
+  "scripts": {
+    "start": "concurrently 'nodemon dist/app.js' 'npm run tsc:w'",
+    "tsc:w": "tsc -w",
+    "lint": "tslint -c tslint.json --fix ./**/*.ts",
+    "kue-dashboard": "kue-dashboard -r redis://10.125.4.47"
+  },
+  "dependencies": {
+    "kue": "^0.11.5",
+    "express": "^4.15.3",
+    "body-parser": "^1.17.2",
+    "typescript": "^2.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.21",
+    "@types/body-parser": "^1.16.3",
+    "@types/dotenv": "^4.0.0",
+    "@types/kue": "^0.11.1",
+    "@types/express": "^4.0.35",
+    "tslint": "^5.3.2",
+    "dotenv": "^4.0.0",
+    "nodemon": "^1.11.0",
+    "concurrently": "^3.4.0"
+  }
+}
