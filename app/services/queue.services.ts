@@ -10,12 +10,14 @@ export class QueueServices {
 
         const exists = this.processors.indexOf(name);
 
-        if (exists >= 0) {
-            throw new Error(`Processor exists ${name}`);
+        if (exists < 0) {
+
+            this.processors.push(name);
+
+            if (this.queue) {
+                this.queue.process(name, priority, call);
+            }
         }
 
-        this.processors.push(name);
-
-        this.queue.process(name, priority, call);
     }
 }
